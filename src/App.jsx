@@ -1118,13 +1118,22 @@ function App() {
                               <div style={{ minHeight: '40px', display: 'flex', alignItems: 'center' }}>
                                 {isKnown ? (
                                   <div style={{ display: 'flex', gap: '8px', alignItems: 'center', animation: 'fadeIn 0.3s ease-out' }}>
-                                    <input 
-                                      type="number" 
-                                      placeholder="Weight" 
-                                      value={ex.weight} 
-                                      onChange={(e) => handleUpdateBaselineEx(idx, 'weight', parseFloat(e.target.value) || 0)}
-                                      style={{ width: '80px', padding: '10px 12px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--border-color)', color: 'var(--text-light)', outline: 'none' }}
-                                    />
+                                    {(() => {
+                                      const exIsDumbbell = (ex.name || '').toLowerCase().includes('dumbbell') || 
+                                                           (ex.name || '').toLowerCase().includes('lateral raise') ||
+                                                           (exercisesDb.find(d => d.name_en === ex.name)?.equipment_type || '').toLowerCase().includes('dumbbell');
+                                      return (
+                                        <input 
+                                          type="number" 
+                                          placeholder={lang === 'fa' 
+                                            ? (exIsDumbbell ? "وزن/دست" : "وزن") 
+                                            : (exIsDumbbell ? "Wt/Hand" : "Weight")} 
+                                          value={ex.weight} 
+                                          onChange={(e) => handleUpdateBaselineEx(idx, 'weight', parseFloat(e.target.value) || 0)}
+                                          style={{ width: '80px', padding: '10px 12px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--border-color)', color: 'var(--text-light)', outline: 'none' }}
+                                        />
+                                      );
+                                    })()}
                                     <span style={{ color: 'var(--text-muted)' }}>kg ×</span>
                                     <input 
                                       type="number" 
@@ -1251,7 +1260,18 @@ function App() {
                         
                         <div style={{ display: 'flex', gap: '16px', marginBottom: '32px' }}>
                           <div style={{ flex: 1 }}>
-                            <label className="form-label">Weight (kg)</label>
+                            {(() => {
+                              const isDumbbell = (beginnerLogModal.exercise.name_en || '').toLowerCase().includes('dumbbell') || 
+                                                 (beginnerLogModal.exercise.name_en || '').toLowerCase().includes('lateral raise') ||
+                                                 (beginnerLogModal.exercise.equipment_type || '').toLowerCase().includes('dumbbell');
+                              return (
+                                <label className="form-label">
+                                  {lang === 'fa' 
+                                    ? (isDumbbell ? "وزن هر دست (کیلوگرم)" : "وزن (کیلوگرم)") 
+                                    : (isDumbbell ? "Weight per hand (kg)" : "Weight (kg)")}
+                                </label>
+                              );
+                            })()}
                             <input 
                               type="number" 
                               className="form-input" 
