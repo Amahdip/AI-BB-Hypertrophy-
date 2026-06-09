@@ -14,25 +14,36 @@ export default function MuscleHeatmap({ mesocycle }) {
       const dbEx = exercisesDb.find(d => d.name_en === ex.name || d.id === ex.name);
       const sets = ex.target_sets || 0;
 
-      let musclesToHighlight = [];
-
-      if (dbEx && dbEx.primary_muscle) {
-        musclesToHighlight = [dbEx.primary_muscle];
+      if (dbEx) {
+        if (dbEx.primary_muscle) {
+          const muscleSlug = dbEx.primary_muscle;
+          if (!muscleVolume[muscleSlug]) muscleVolume[muscleSlug] = 0;
+          muscleVolume[muscleSlug] += sets;
+        }
+        
+        if (Array.isArray(dbEx.secondary_muscles)) {
+          dbEx.secondary_muscles.forEach(muscleSlug => {
+            if (!muscleVolume[muscleSlug]) muscleVolume[muscleSlug] = 0;
+            // Add 0.5x sets for secondary/stabilizer muscles to match RP principles
+            muscleVolume[muscleSlug] += sets * 0.5;
+          });
+        }
       } else {
         // Fallback guess logic for unknown custom exercises based on category text
+        let fallbackMuscles = [];
         const cat = (ex.category || '').toLowerCase();
-        if (cat.includes('chest') || cat.includes('push')) musclesToHighlight = ['chest'];
-        if (cat.includes('back') || cat.includes('pull')) musclesToHighlight = ['upper-back'];
-        if (cat.includes('legs') || cat.includes('quads')) musclesToHighlight = ['quadriceps'];
-        if (cat.includes('shoulders')) musclesToHighlight = ['front-deltoids'];
-        if (cat.includes('biceps')) musclesToHighlight = ['biceps'];
-        if (cat.includes('triceps')) musclesToHighlight = ['triceps'];
-      }
+        if (cat.includes('chest') || cat.includes('push')) fallbackMuscles = ['chest'];
+        if (cat.includes('back') || cat.includes('pull')) fallbackMuscles = ['upper-back'];
+        if (cat.includes('legs') || cat.includes('quads')) fallbackMuscles = ['quadriceps'];
+        if (cat.includes('shoulders')) fallbackMuscles = ['front-deltoids'];
+        if (cat.includes('biceps')) fallbackMuscles = ['biceps'];
+        if (cat.includes('triceps')) fallbackMuscles = ['triceps'];
 
-      musclesToHighlight.forEach(muscleSlug => {
-        if (!muscleVolume[muscleSlug]) muscleVolume[muscleSlug] = 0;
-        muscleVolume[muscleSlug] += sets;
-      });
+        fallbackMuscles.forEach(muscleSlug => {
+          if (!muscleVolume[muscleSlug]) muscleVolume[muscleSlug] = 0;
+          muscleVolume[muscleSlug] += sets;
+        });
+      }
     });
 
     // Map calculated volume counts into the specific format & intensity scale for the package
