@@ -229,13 +229,25 @@ function App() {
             </span>
           </div>
           
-          {/* Actual Image if it exists (loads GIF on hover, static image otherwise) */}
-          {(ex.gif_url || ex.thumbnail_url) && (
+          {/* Layer 1: Static Thumbnail (Always rendered underneath) */}
+          {ex.thumbnail_url && (
             <div style={{
               position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-              backgroundImage: `url(${isHovered && ex.gif_url ? ex.gif_url : (ex.thumbnail_url || ex.gif_url)})`,
+              backgroundImage: `url(${ex.thumbnail_url})`,
               backgroundSize: 'cover', backgroundPosition: 'center',
               zIndex: 1
+            }} />
+          )}
+
+          {/* Layer 2: Animated GIF (Fades in on hover) */}
+          {ex.gif_url && (
+            <div style={{
+              position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+              backgroundImage: `url(${ex.gif_url})`,
+              backgroundSize: 'cover', backgroundPosition: 'center',
+              zIndex: 2,
+              opacity: isHovered ? 1 : 0,
+              transition: 'opacity 0.2s ease-in-out'
             }} />
           )}
 
@@ -245,7 +257,7 @@ function App() {
               background: 'rgba(0,0,0,0.75)', color: 'var(--text-muted)', 
               padding: '4px 8px', borderRadius: '12px', fontSize: '10px', fontWeight: 'bold',
               textTransform: 'uppercase', letterSpacing: '0.05em',
-              zIndex: 2
+              zIndex: 3
             }}>
               Stabilizer
             </div>
