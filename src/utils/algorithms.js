@@ -1,11 +1,14 @@
 /**
  * Calculates Estimated 1-Rep Max (e1RM) using Epley's formula:
  * e1RM = w * (1 + r / 30)
+ * For bodyweight exercises where w = 0, e1RM can track max reps directly.
  * @param {number} weight - Weight lifted in kg
  * @param {number} reps - Repetitions performed
- * @returns {number} Estimated 1-Rep Max
+ * @param {boolean} isRepBased - If true, return reps directly as the progression metric
+ * @returns {number} Estimated 1-Rep Max or reps
  */
-export function calculateE1RM(weight, reps) {
+export function calculateE1RM(weight, reps, isRepBased = false) {
+  if (isRepBased) return reps || 0;
   if (!weight || !reps) return 0;
   return Math.round(weight * (1 + reps / 30) * 10) / 10;
 }

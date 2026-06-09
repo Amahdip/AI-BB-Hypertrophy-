@@ -519,15 +519,26 @@ function App() {
   };
 
   const handleSaveBeginnerLog = () => {
-    if (!beginnerLogModal || !beginnerLogWeight || !beginnerLogReps) return;
+    if (!beginnerLogModal || !beginnerLogReps) return;
     
-    const e1rm = calculateE1RM(parseFloat(beginnerLogWeight), parseInt(beginnerLogReps));
+    const exerciseName = beginnerLogModal.exercise.name_en || beginnerLogModal.exercise.name;
+    const isBodyweight = checkIsBodyweight(exerciseName, beginnerLogModal.exercise.equipment_type);
+    if (!isBodyweight && !beginnerLogWeight) return;
+
+    const weightVal = parseFloat(beginnerLogWeight) || 0;
+    const repsVal = parseInt(beginnerLogReps) || 0;
+    
+    // Determine if this is a rep-based PR (bodyweight exercise with zero/empty added weight logged)
+    const isRepBasedPR = isBodyweight && weightVal === 0;
+
+    const e1rm = calculateE1RM(weightVal, repsVal, isRepBasedPR);
     const newEx = {
-      name: beginnerLogModal.exercise.name_en || beginnerLogModal.exercise.name,
+      name: exerciseName,
       category: beginnerLogModal.exercise.category,
-      weight: parseFloat(beginnerLogWeight),
-      reps: parseInt(beginnerLogReps),
-      e1rm: e1rm
+      weight: weightVal,
+      reps: repsVal,
+      e1rm: e1rm,
+      isRepBasedPR: isRepBasedPR
     };
 
     // Update or push into baselineExercises
@@ -700,7 +711,8 @@ function App() {
         baseWeight = 'Calibration';
         reasonText = 'Calibration Week initialized. Weights are left blank to discover optimal loading. Log your exertion after the workout to auto-calculate your baseline for Week 2.';
       } else {
-        baseWeight = Math.round((ex.e1rm * 0.70) * 2) / 2;
+        const isRepBased = ex.isRepBasedPR || (checkIsBodyweight(ex.name) && (ex.weight === 0 || !ex.weight));
+        baseWeight = isRepBased ? 0 : Math.round((ex.e1rm * 0.70) * 2) / 2;
         if (!reasonText) reasonText = 'Initial program built using baseline estimated 1RM calculations.';
       }
 
@@ -1446,14 +1458,20 @@ function App() {
                                 </label>
                               );
                             })()}
-                            <input 
-                              type="number" 
-                              className="form-input" 
-                              placeholder="e.g. 40"
-                              value={beginnerLogWeight}
-                              onChange={(e) => setBeginnerLogWeight(e.target.value)}
-                              style={{ fontSize: '24px', padding: '16px', textAlign: 'center' }}
-                            />
+                            {(() => {
+                              const exerciseName = beginnerLogModal.exercise.name_en || beginnerLogModal.exercise.name;
+                              const isBodyweight = checkIsBodyweight(exerciseName, beginnerLogModal.exercise.equipment_type);
+                              return (
+                                <input 
+                                  type="number" 
+                                  className="form-input" 
+                                  placeholder={isBodyweight ? "e.g. 0" : "e.g. 40"}
+                                  value={beginnerLogWeight}
+                                  onChange={(e) => setBeginnerLogWeight(e.target.value)}
+                                  style={{ fontSize: '24px', padding: '16px', textAlign: 'center' }}
+                                />
+                              );
+                            })()}
                           </div>
                           <div style={{ flex: 1 }}>
                             {(() => {
@@ -1482,14 +1500,21 @@ function App() {
                           <button onClick={() => setBeginnerLogModal(null)} className="btn btn-secondary" style={{ flex: 1, padding: '16px' }}>
                             Cancel
                           </button>
-                          <button 
-                            onClick={handleSaveBeginnerLog} 
-                            className="btn btn-primary" 
-                            style={{ flex: 2, padding: '16px', fontSize: '16px' }}
-                            disabled={!beginnerLogWeight || !beginnerLogReps}
-                          >
-                            Save Log
-                          </button>
+                          {(() => {
+                            const exerciseName = beginnerLogModal.exercise.name_en || beginnerLogModal.exercise.name;
+                            const isBodyweight = checkIsBodyweight(exerciseName, beginnerLogModal.exercise.equipment_type);
+                            const canSave = (isBodyweight || beginnerLogWeight) && beginnerLogReps;
+                            return (
+                              <button 
+                                onClick={handleSaveBeginnerLog} 
+                                className="btn btn-primary" 
+                                style={{ flex: 2, padding: '16px', fontSize: '16px' }}
+                                disabled={!canSave}
+                              >
+                                Save Log
+                              </button>
+                            );
+                          })()}
                         </div>
                       </div>
                     </div>
@@ -1982,20 +2007,26 @@ function App() {
                 ) : (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                     {baselineExercises.map((ex, idx) => {
-                      const percentage = Math.min((ex.e1rm / 200) * 100, 100); // Visual scaling max 200kg
+                      const isRepBased = ex.isRepBasedPR || (checkIsBodyweight(ex.name) && (ex.weight === 0 || !ex.weight));
+                      const displayVal = isRepBased 
+                        ? `${ex.reps} Reps (BW)` 
+                        : (ex.e1rm ? `${ex.e1rm.toFixed(1)} kg` : 'N/A');
+                      const percentage = isRepBased
+                        ? Math.min((ex.reps / 30) * 100, 100) // Visual scaling max 30 reps
+                        : Math.min((ex.e1rm / 200) * 100, 100); // Visual scaling max 200kg
                       
                       return (
                         <div key={idx}>
                           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
                             <span style={{ fontWeight: '600', fontSize: '14px' }}>{ex.name}</span>
                             <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary)', fontWeight: 'bold' }}>
-                              {ex.e1rm ? `${ex.e1rm.toFixed(1)} kg` : 'N/A'}
+                              {displayVal}
                             </span>
                           </div>
                           <div style={{ height: '8px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px', overflow: 'hidden' }}>
                             <div style={{ 
                               height: '100%', 
-                              width: `${ex.e1rm ? Math.max(percentage, 2) : 0}%`, 
+                              width: `${(isRepBased ? ex.reps : ex.e1rm) ? Math.max(percentage, 2) : 0}%`, 
                               background: 'linear-gradient(90deg, #10b981, #f59e0b)',
                               borderRadius: '4px',
                               transition: 'width 1s ease-out'
