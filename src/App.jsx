@@ -85,6 +85,86 @@ const checkIsUnilateral = (exerciseName) => {
   return nameLower.includes('single') || nameLower.includes('one arm') || nameLower.includes('alternating') || nameLower.includes('lunges') || nameLower.includes('lunge');
 };
 
+const checkIsBodyweight = (exerciseName, equipmentType) => {
+  const nameLower = (exerciseName || '').toLowerCase();
+  const eqLower = (equipmentType || '').toLowerCase();
+
+  // Explicitly check for bodyweight equipment types or lack of equipment
+  if (
+    eqLower === 'bodyweight' || 
+    eqLower === 'body weight' || 
+    eqLower === 'none' || 
+    equipmentType === null || 
+    equipmentType === undefined ||
+    equipmentType === ''
+  ) {
+    return true;
+  }
+
+  // Check name indicators for bodyweight movements (ensuring it's not a cable or assisted machine)
+  if (!nameLower.includes('cable') && !nameLower.includes('assisted')) {
+    if (
+      nameLower.includes('crunch') ||
+      nameLower.includes('sit-up') ||
+      nameLower.includes('situp') ||
+      nameLower.includes('pull-up') ||
+      nameLower.includes('pullup') ||
+      nameLower.includes('push-up') ||
+      nameLower.includes('pushup') ||
+      nameLower.includes('plank') ||
+      nameLower.includes('dip') ||
+      nameLower.includes('chin-up') ||
+      nameLower.includes('chinup') ||
+      nameLower.includes('leg raise') ||
+      nameLower.includes('hanging leg') ||
+      nameLower.includes('hyperextension')
+    ) {
+      return true;
+    }
+  }
+
+  // Also check database if only name is available or for secondary matches
+  const dbMatch = exercisesDb.find(d => d.name_en === exerciseName);
+  if (dbMatch) {
+    const dbEqLower = (dbMatch.equipment_type || '').toLowerCase();
+    const dbNameLower = (dbMatch.name_en || '').toLowerCase();
+    
+    if (
+      dbEqLower === 'bodyweight' || 
+      dbEqLower === 'body weight' || 
+      dbEqLower === 'none' || 
+      dbMatch.equipment_type === null || 
+      dbMatch.equipment_type === undefined ||
+      dbMatch.equipment_type === ''
+    ) {
+      return true;
+    }
+
+    if (!dbNameLower.includes('cable') && !dbNameLower.includes('assisted')) {
+      if (
+        dbNameLower.includes('crunch') ||
+        dbNameLower.includes('sit-up') ||
+        dbNameLower.includes('situp') ||
+        dbNameLower.includes('pull-up') ||
+        dbNameLower.includes('pullup') ||
+        dbNameLower.includes('push-up') ||
+        dbNameLower.includes('pushup') ||
+        dbNameLower.includes('plank') ||
+        dbNameLower.includes('dip') ||
+        dbNameLower.includes('chin-up') ||
+        dbNameLower.includes('chinup') ||
+        dbNameLower.includes('leg raise') ||
+        dbNameLower.includes('hanging leg') ||
+        dbNameLower.includes('hyperextension')
+      ) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+};
+
 function ExerciseImage({ thumbnail_url, gif_url, name, equipment_type, isHovered }) {
   const [thumbFailed, setThumbFailed] = useState(false);
   const [gifFailed, setGifFailed] = useState(false);
@@ -1202,12 +1282,13 @@ function App() {
                                     {(() => {
                                       const exIsDumbbell = checkIsDumbbell(ex.name);
                                       const exIsAssisted = checkIsAssisted(ex.name);
+                                      const exIsBodyweight = checkIsBodyweight(ex.name);
                                       return (
                                         <input 
                                           type="number" 
                                           placeholder={lang === 'fa' 
-                                            ? (exIsDumbbell ? "وزن/دست" : (exIsAssisted ? "وزن کمکی" : "وزن")) 
-                                            : (exIsDumbbell ? "Wt/Hand" : (exIsAssisted ? "Assist Wt" : "Weight"))} 
+                                            ? (exIsDumbbell ? "وزن/دست" : (exIsAssisted ? "وزن کمکی" : (exIsBodyweight ? "وزن اضافی" : "وزن"))) 
+                                            : (exIsDumbbell ? "Wt/Hand" : (exIsAssisted ? "Assist Wt" : (exIsBodyweight ? "Added Wt" : "Weight")))} 
                                           value={ex.weight} 
                                           onChange={(e) => handleUpdateBaselineEx(idx, 'weight', parseFloat(e.target.value) || 0)}
                                           style={{ width: '80px', padding: '10px 12px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--border-color)', color: 'var(--text-light)', outline: 'none' }}
@@ -1356,11 +1437,12 @@ function App() {
                               const exerciseName = beginnerLogModal.exercise.name_en || beginnerLogModal.exercise.name;
                               const isDumbbell = checkIsDumbbell(exerciseName);
                               const isAssisted = checkIsAssisted(exerciseName);
+                              const isBodyweight = checkIsBodyweight(exerciseName, beginnerLogModal.exercise.equipment_type);
                               return (
                                 <label className="form-label">
                                   {lang === 'fa' 
-                                    ? (isDumbbell ? "وزن هر دست (کیلوگرم)" : (isAssisted ? "وزن کمکی (کیلوگرم)" : "وزن (کیلوگرم)")) 
-                                    : (isDumbbell ? "Weight per hand (kg)" : (isAssisted ? "Assisted Weight (kg)" : "Weight (kg)"))}
+                                    ? (isAssisted ? "وزن کمکی (کیلوگرم)" : (isDumbbell ? "وزن هر دست (کیلوگرم)" : (isBodyweight ? "وزن اضافی (کیلوگرم)" : "وزن (کیلوگرم)"))) 
+                                    : (isAssisted ? "Assisted Weight (kg)" : (isDumbbell ? "Weight per hand (kg)" : (isBodyweight ? "Added Weight (kg)" : "Weight (kg)")))}
                                 </label>
                               );
                             })()}
