@@ -2011,29 +2011,30 @@ function App() {
                       const displayVal = isRepBased 
                         ? `${ex.reps} Reps (BW)` 
                         : (ex.e1rm ? `${ex.e1rm.toFixed(1)} kg` : 'N/A');
-                      const percentage = isRepBased
-                        ? Math.min((ex.reps / 30) * 100, 100) // Visual scaling max 30 reps
-                        : Math.min((ex.e1rm / 200) * 100, 100); // Visual scaling max 200kg
                       
                       return (
-                        <div key={idx}>
-                          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                            <span style={{ fontWeight: '600', fontSize: '14px' }}>{ex.name}</span>
-                            <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary)', fontWeight: 'bold' }}>
-                              {displayVal}
+                        <div key={idx} style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          padding: '12px 16px',
+                          background: 'rgba(255, 255, 255, 0.02)',
+                          border: '1px solid var(--border-color)',
+                          borderRadius: '8px'
+                        }}>
+                          <div>
+                            <div style={{ fontWeight: '600', fontSize: '14px', marginBottom: '4px' }}>{ex.name}</div>
+                            <span className="badge badge-info" style={{ fontSize: '10px', padding: '2px 8px' }}>
+                              {ex.category}
                             </span>
                           </div>
-                          <div style={{ height: '8px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px', overflow: 'hidden' }}>
-                            <div style={{ 
-                              height: '100%', 
-                              width: `${(isRepBased ? ex.reps : ex.e1rm) ? Math.max(percentage, 2) : 0}%`, 
-                              background: 'linear-gradient(90deg, #10b981, #f59e0b)',
-                              borderRadius: '4px',
-                              transition: 'width 1s ease-out'
-                            }} />
-                          </div>
-                          <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '4px', textAlign: 'right' }}>
-                            {ex.category}
+                          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
+                            <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary)', fontWeight: '800', fontSize: '16px' }}>
+                              {displayVal}
+                            </span>
+                            <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                              {lang === 'fa' ? 'رکورد ثبت‌شده' : 'Baseline Logged'}
+                            </span>
                           </div>
                         </div>
                       );
