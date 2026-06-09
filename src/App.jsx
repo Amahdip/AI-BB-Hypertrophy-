@@ -60,6 +60,109 @@ const TRANSLATIONS = {
   fa: faTranslations
 };
 
+// Dynamic label/image helper functions
+const checkIsDumbbell = (exerciseName) => {
+  if (!exerciseName) return false;
+  const nameLower = exerciseName.toLowerCase();
+  if (nameLower.includes('dumbbell') || nameLower.includes('lateral raise')) return true;
+  const dbMatch = exercisesDb.find(d => d.name_en === exerciseName);
+  if (dbMatch && (dbMatch.equipment_type || '').toLowerCase().includes('dumbbell')) return true;
+  return false;
+};
+
+const checkIsAssisted = (exerciseName) => {
+  if (!exerciseName) return false;
+  const nameLower = exerciseName.toLowerCase();
+  if (nameLower.includes('assisted')) return true;
+  const dbMatch = exercisesDb.find(d => d.name_en === exerciseName);
+  if (dbMatch && (dbMatch.name_en || '').toLowerCase().includes('assisted')) return true;
+  return false;
+};
+
+const checkIsUnilateral = (exerciseName) => {
+  if (!exerciseName) return false;
+  const nameLower = exerciseName.toLowerCase();
+  return nameLower.includes('single') || nameLower.includes('one arm') || nameLower.includes('alternating') || nameLower.includes('lunges') || nameLower.includes('lunge');
+};
+
+function ExerciseImage({ thumbnail_url, gif_url, name, equipment_type, isHovered }) {
+  const [thumbFailed, setThumbFailed] = useState(false);
+  const [gifFailed, setGifFailed] = useState(false);
+
+  const getInitials = (str) => {
+    if (!str) return 'EX';
+    const cleanStr = str.replace(/[^a-zA-Z0-9\s]/g, '');
+    const parts = cleanStr.trim().split(/\s+/);
+    if (parts.length === 0) return 'EX';
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0][0] + (parts[1]?.[0] || '')).toUpperCase();
+  };
+
+  const showFallback = !thumbnail_url || thumbFailed;
+
+  if (showFallback) {
+    return (
+      <div style={{
+        width: '100%', height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '8px',
+        background: 'rgba(18, 18, 24, 0.75)',
+        backdropFilter: 'blur(16px)',
+        border: '1px solid rgba(255, 255, 255, 0.08)',
+        borderRadius: '8px',
+        color: 'var(--text-muted)',
+        position: 'absolute', top: 0, left: 0
+      }}>
+        <Dumbbell size={20} style={{ color: 'var(--primary)', opacity: 0.6 }} />
+        <div style={{ 
+          fontSize: '20px', 
+          fontWeight: '900', 
+          fontFamily: 'var(--font-display)',
+          color: 'var(--text-main)',
+          opacity: 0.95 
+        }}>
+          {getInitials(name)}
+        </div>
+        <span style={{ fontSize: '9px', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: '700', opacity: 0.5 }}>
+          {equipment_type || 'Exercise'}
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <img
+        src={thumbnail_url}
+        alt={name}
+        onError={() => setThumbFailed(true)}
+        style={{
+          position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+          objectFit: 'cover',
+          zIndex: 1
+        }}
+      />
+      {gif_url && !gifFailed && (
+        <img
+          src={gif_url}
+          alt={`${name} animation`}
+          onError={() => setGifFailed(true)}
+          style={{
+            position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+            objectFit: 'cover',
+            zIndex: 2,
+            opacity: isHovered ? 1 : 0,
+            transition: 'opacity 0.2s ease-in-out'
+          }}
+        />
+      )}
+    </>
+  );
+}
+
 function App() {
   const [lang, setLang] = useState(() => localStorage.getItem('appLang') || 'en');
   const t = (key) => TRANSLATIONS[lang][key] || key;
@@ -221,35 +324,13 @@ function App() {
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           position: 'relative', border: '1px solid rgba(255, 255, 255, 0.03)'
         }}>
-          {/* CSS Fallback Placeholder: Dumbbell icon and equipment label */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', opacity: 0.3 }}>
-            <Dumbbell size={28} style={{ color: 'var(--primary)' }} />
-            <span style={{ fontSize: '9px', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: '700', color: 'var(--text-muted)' }}>
-              {ex.equipment_type || 'Exercise'}
-            </span>
-          </div>
-          
-          {/* Layer 1: Static Thumbnail (Always rendered underneath) */}
-          {ex.thumbnail_url && (
-            <div style={{
-              position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-              backgroundImage: `url(${ex.thumbnail_url})`,
-              backgroundSize: 'cover', backgroundPosition: 'center',
-              zIndex: 1
-            }} />
-          )}
-
-          {/* Layer 2: Animated GIF (Fades in on hover) */}
-          {ex.gif_url && (
-            <div style={{
-              position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-              backgroundImage: `url(${ex.gif_url})`,
-              backgroundSize: 'cover', backgroundPosition: 'center',
-              zIndex: 2,
-              opacity: isHovered ? 1 : 0,
-              transition: 'opacity 0.2s ease-in-out'
-            }} />
-          )}
+          <ExerciseImage 
+            thumbnail_url={ex.thumbnail_url}
+            gif_url={ex.gif_url}
+            name={ex.name_en || ex.name}
+            equipment_type={ex.equipment_type}
+            isHovered={isHovered}
+          />
 
           {isSecondary && (
             <div style={{
@@ -1119,15 +1200,14 @@ function App() {
                                 {isKnown ? (
                                   <div style={{ display: 'flex', gap: '8px', alignItems: 'center', animation: 'fadeIn 0.3s ease-out' }}>
                                     {(() => {
-                                      const exIsDumbbell = (ex.name || '').toLowerCase().includes('dumbbell') || 
-                                                           (ex.name || '').toLowerCase().includes('lateral raise') ||
-                                                           (exercisesDb.find(d => d.name_en === ex.name)?.equipment_type || '').toLowerCase().includes('dumbbell');
+                                      const exIsDumbbell = checkIsDumbbell(ex.name);
+                                      const exIsAssisted = checkIsAssisted(ex.name);
                                       return (
                                         <input 
                                           type="number" 
                                           placeholder={lang === 'fa' 
-                                            ? (exIsDumbbell ? "وزن/دست" : "وزن") 
-                                            : (exIsDumbbell ? "Wt/Hand" : "Weight")} 
+                                            ? (exIsDumbbell ? "وزن/دست" : (exIsAssisted ? "وزن کمکی" : "وزن")) 
+                                            : (exIsDumbbell ? "Wt/Hand" : (exIsAssisted ? "Assist Wt" : "Weight"))} 
                                           value={ex.weight} 
                                           onChange={(e) => handleUpdateBaselineEx(idx, 'weight', parseFloat(e.target.value) || 0)}
                                           style={{ width: '80px', padding: '10px 12px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--border-color)', color: 'var(--text-light)', outline: 'none' }}
@@ -1135,13 +1215,20 @@ function App() {
                                       );
                                     })()}
                                     <span style={{ color: 'var(--text-muted)' }}>kg ×</span>
-                                    <input 
-                                      type="number" 
-                                      placeholder="Reps" 
-                                      value={ex.reps} 
-                                      onChange={(e) => handleUpdateBaselineEx(idx, 'reps', parseInt(e.target.value) || 0)}
-                                      style={{ width: '70px', padding: '10px 12px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--border-color)', color: 'var(--text-light)', outline: 'none' }}
-                                    />
+                                    {(() => {
+                                      const exIsUnilateral = checkIsUnilateral(ex.name);
+                                      return (
+                                        <input 
+                                          type="number" 
+                                          placeholder={lang === 'fa' 
+                                            ? (exIsUnilateral ? "تکرار/طرف" : "تکرار") 
+                                            : (exIsUnilateral ? "Reps/side" : "Reps")} 
+                                          value={ex.reps} 
+                                          onChange={(e) => handleUpdateBaselineEx(idx, 'reps', parseInt(e.target.value) || 0)}
+                                          style={{ width: '70px', padding: '10px 12px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--border-color)', color: 'var(--text-light)', outline: 'none' }}
+                                        />
+                                      );
+                                    })()}
                                   </div>
                                 ) : (
                                   <div style={{
@@ -1246,29 +1333,34 @@ function App() {
                         <h3 style={{ marginBottom: '8px', fontSize: '22px' }}>{beginnerLogModal.exercise.name_en || beginnerLogModal.exercise.name}</h3>
                         <p style={{ color: 'var(--text-muted)', marginBottom: '24px' }}>What did you lift today?</p>
                         
-                        {/* Looping exercise animation GIF */}
-                        {(beginnerLogModal.exercise.gif_url || beginnerLogModal.exercise.thumbnail_url) && (
-                          <div style={{
-                            height: '220px', borderRadius: '12px', overflow: 'hidden',
-                            marginBottom: '24px',
-                            background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(30, 41, 59, 0.5))',
-                            backgroundImage: `url(${beginnerLogModal.exercise.gif_url || beginnerLogModal.exercise.thumbnail_url})`,
-                            backgroundSize: 'cover', backgroundPosition: 'center',
-                            border: '1px solid rgba(255, 255, 255, 0.05)'
-                          }} />
-                        )}
+                        {/* Looping exercise animation GIF / Fallback */}
+                        <div style={{
+                          height: '220px', borderRadius: '12px', overflow: 'hidden',
+                          marginBottom: '24px',
+                          position: 'relative',
+                          background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(30, 41, 59, 0.5))',
+                          border: '1px solid rgba(255, 255, 255, 0.05)'
+                        }}>
+                          <ExerciseImage 
+                            thumbnail_url={beginnerLogModal.exercise.thumbnail_url}
+                            gif_url={beginnerLogModal.exercise.gif_url}
+                            name={beginnerLogModal.exercise.name_en || beginnerLogModal.exercise.name}
+                            equipment_type={beginnerLogModal.exercise.equipment_type}
+                            isHovered={true}
+                          />
+                        </div>
                         
                         <div style={{ display: 'flex', gap: '16px', marginBottom: '32px' }}>
                           <div style={{ flex: 1 }}>
                             {(() => {
-                              const isDumbbell = (beginnerLogModal.exercise.name_en || '').toLowerCase().includes('dumbbell') || 
-                                                 (beginnerLogModal.exercise.name_en || '').toLowerCase().includes('lateral raise') ||
-                                                 (beginnerLogModal.exercise.equipment_type || '').toLowerCase().includes('dumbbell');
+                              const exerciseName = beginnerLogModal.exercise.name_en || beginnerLogModal.exercise.name;
+                              const isDumbbell = checkIsDumbbell(exerciseName);
+                              const isAssisted = checkIsAssisted(exerciseName);
                               return (
                                 <label className="form-label">
                                   {lang === 'fa' 
-                                    ? (isDumbbell ? "وزن هر دست (کیلوگرم)" : "وزن (کیلوگرم)") 
-                                    : (isDumbbell ? "Weight per hand (kg)" : "Weight (kg)")}
+                                    ? (isDumbbell ? "وزن هر دست (کیلوگرم)" : (isAssisted ? "وزن کمکی (کیلوگرم)" : "وزن (کیلوگرم)")) 
+                                    : (isDumbbell ? "Weight per hand (kg)" : (isAssisted ? "Assisted Weight (kg)" : "Weight (kg)"))}
                                 </label>
                               );
                             })()}
@@ -1282,7 +1374,17 @@ function App() {
                             />
                           </div>
                           <div style={{ flex: 1 }}>
-                            <label className="form-label">Reps Completed</label>
+                            {(() => {
+                              const exerciseName = beginnerLogModal.exercise.name_en || beginnerLogModal.exercise.name;
+                              const isUnilateral = checkIsUnilateral(exerciseName);
+                              return (
+                                <label className="form-label">
+                                  {lang === 'fa' 
+                                    ? (isUnilateral ? "تکرار (هر سمت)" : "تکرار انجام شده") 
+                                    : (isUnilateral ? "Reps (per side)" : "Reps Completed")}
+                                </label>
+                              );
+                            })()}
                             <input 
                               type="number" 
                               className="form-input" 
@@ -1353,9 +1455,25 @@ function App() {
                               border: '1px solid var(--border-color)', borderRadius: '8px' 
                             }}
                           >
-                            <div>
-                              <div style={{ fontWeight: '600' }}>{alt.name_en}</div>
-                              <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{alt.category} • {alt.equipment_type}</div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                              <div style={{
+                                width: '48px', height: '48px', borderRadius: '6px', overflow: 'hidden',
+                                position: 'relative', flexShrink: 0,
+                                background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(30, 41, 59, 0.5))',
+                                border: '1px solid rgba(255, 255, 255, 0.05)'
+                              }}>
+                                <ExerciseImage 
+                                  thumbnail_url={alt.thumbnail_url}
+                                  gif_url={alt.gif_url}
+                                  name={alt.name_en}
+                                  equipment_type={alt.equipment_type}
+                                  isHovered={false}
+                                />
+                              </div>
+                              <div>
+                                <div style={{ fontWeight: '600' }}>{alt.name_en}</div>
+                                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{alt.category} • {alt.equipment_type}</div>
+                              </div>
                             </div>
                             <button 
                               className="btn btn-primary" 
