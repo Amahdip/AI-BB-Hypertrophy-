@@ -611,6 +611,16 @@ function App() {
     setSwapModalState(null);
   };
 
+  const handleRemoveExercise = (exName) => {
+    setBaselineExercises(prev => prev.filter(ex => ex.name !== exName));
+    setKnownMovements(prev => {
+      const copy = { ...prev };
+      delete copy[exName];
+      return copy;
+    });
+  };
+
+
   // Initialize Week 1 Mesocycle from Baselines
   const handleInitializeMesocycle = async () => {
     setIsGeneratingPlan(true);
@@ -1233,111 +1243,159 @@ function App() {
                     </p>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                      {baselineExercises.map((ex, idx) => {
-                        const isKnown = !!knownMovements[ex.name];
-                        return (
-                          <div key={idx} style={{
-                            background: 'rgba(255, 255, 255, 0.03)',
-                            border: '1px solid var(--border-color)',
-                            borderRadius: '12px',
-                            padding: '16px',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '16px',
-                            transition: 'border-color 0.2s',
-                          }}>
-                            {/* Header: Name, Category, and Swap */}
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                              <div>
-                                <h4 style={{ margin: '0 0 4px 0', fontSize: '16px' }}>{ex.name}</h4>
-                                <span style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: '600' }}>{ex.category}</span>
-                              </div>
-                              {ex.category && (
-                                <button 
-                                  onClick={() => handleSwapClick(idx, ex.category)}
-                                  className="btn btn-secondary"
-                                  style={{ padding: '6px 12px', fontSize: '12px', background: 'rgba(255, 255, 255, 0.05)', border: 'none' }}
-                                >
-                                  <RefreshCw size={14} /> Swap
-                                </button>
-                              )}
-                            </div>
-
-                            {/* Divider */}
-                            <div style={{ height: '1px', background: 'var(--border-color)', opacity: 0.5 }}></div>
-
-                            {/* Action Row: Toggle and Inputs */}
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
-                              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                <div 
-                                  onClick={() => handleToggleKnown(ex.name)}
-                                  style={{
-                                    width: '40px', height: '22px', borderRadius: '11px',
-                                    background: isKnown ? 'var(--primary)' : 'rgba(255,255,255,0.1)',
-                                    position: 'relative', cursor: 'pointer', transition: 'background 0.3s'
-                                  }}
-                                >
-                                  <div style={{
-                                    position: 'absolute', top: '3px', left: isKnown ? '21px' : '3px',
-                                    width: '16px', height: '16px', borderRadius: '50%', background: '#fff',
-                                    transition: 'left 0.3s', boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
-                                  }} />
+                      {baselineExercises.length === 0 ? (
+                        <div style={{ 
+                          textAlign: 'center', 
+                          padding: '32px 16px', 
+                          background: 'rgba(255, 255, 255, 0.01)', 
+                          border: '1px dashed var(--border-color)', 
+                          borderRadius: '8px',
+                          color: 'var(--text-muted)'
+                        }}>
+                          <Dumbbell size={28} style={{ color: 'var(--text-muted)', opacity: 0.3, marginBottom: '12px' }} />
+                          <p style={{ margin: 0, fontSize: '14px' }}>
+                            {lang === 'fa' 
+                              ? 'هنوز حرکتی به رکورد پایه خود اضافه نکرده‌اید. برای شروع یک گروه عضلانی را از پایین انتخاب کنید!' 
+                              : 'No exercises added to your baseline yet. Select a muscle group below to add some!'}
+                          </p>
+                        </div>
+                      ) : (
+                        baselineExercises.map((ex, idx) => {
+                          const isKnown = !!knownMovements[ex.name];
+                          return (
+                            <div key={idx} style={{
+                              background: 'rgba(255, 255, 255, 0.03)',
+                              border: '1px solid var(--border-color)',
+                              borderRadius: '12px',
+                              padding: '16px',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              gap: '16px',
+                              transition: 'border-color 0.2s',
+                            }}>
+                              {/* Header: Name, Category, Swap and Remove */}
+                              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                <div>
+                                  <h4 style={{ margin: '0 0 4px 0', fontSize: '16px' }}>{ex.name}</h4>
+                                  <span style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: '600' }}>{ex.category}</span>
                                 </div>
-                                <span style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
-                                  I know my 1RM
-                                </span>
+                                <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                                  {ex.category && (
+                                    <button 
+                                      onClick={() => handleSwapClick(idx, ex.category)}
+                                      className="btn btn-secondary"
+                                      style={{ padding: '6px 12px', fontSize: '12px', background: 'rgba(255, 255, 255, 0.05)', border: 'none' }}
+                                    >
+                                      <RefreshCw size={14} /> Swap
+                                    </button>
+                                  )}
+                                  <button 
+                                    onClick={() => handleRemoveExercise(ex.name)}
+                                    className="btn btn-secondary"
+                                    style={{ 
+                                      padding: '6px 12px', 
+                                      fontSize: '12px', 
+                                      background: 'rgba(239, 68, 68, 0.05)', 
+                                      border: '1px solid rgba(239, 68, 68, 0.15)',
+                                      color: 'rgba(239, 68, 68, 0.85)',
+                                      display: 'inline-flex',
+                                      alignItems: 'center',
+                                      gap: '6px',
+                                      transition: 'all 0.2s',
+                                      cursor: 'pointer'
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      e.currentTarget.style.background = 'rgba(239, 68, 68, 0.15)';
+                                      e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.35)';
+                                      e.currentTarget.style.color = '#ef4444';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.currentTarget.style.background = 'rgba(239, 68, 68, 0.05)';
+                                      e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.15)';
+                                      e.currentTarget.style.color = 'rgba(239, 68, 68, 0.85)';
+                                    }}
+                                  >
+                                    <TrashIcon size={14} /> {lang === 'fa' ? 'حذف' : 'Remove'}
+                                  </button>
+                                </div>
                               </div>
 
-                              <div style={{ minHeight: '40px', display: 'flex', alignItems: 'center' }}>
-                                {isKnown ? (
-                                  <div style={{ display: 'flex', gap: '8px', alignItems: 'center', animation: 'fadeIn 0.3s ease-out' }}>
-                                    {(() => {
-                                      const exIsDumbbell = checkIsDumbbell(ex.name);
-                                      const exIsAssisted = checkIsAssisted(ex.name);
-                                      const exIsBodyweight = checkIsBodyweight(ex.name);
-                                      return (
-                                        <input 
-                                          type="number" 
-                                          placeholder={lang === 'fa' 
-                                            ? (exIsDumbbell ? "وزن/دست" : (exIsAssisted ? "وزن کمکی" : (exIsBodyweight ? "وزن اضافی" : "وزن"))) 
-                                            : (exIsDumbbell ? "Wt/Hand" : (exIsAssisted ? "Assist Wt" : (exIsBodyweight ? "Added Wt" : "Weight")))} 
-                                          value={ex.weight} 
-                                          onChange={(e) => handleUpdateBaselineEx(idx, 'weight', parseFloat(e.target.value) || 0)}
-                                          style={{ width: '80px', padding: '10px 12px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--border-color)', color: 'var(--text-light)', outline: 'none' }}
-                                        />
-                                      );
-                                    })()}
-                                    <span style={{ color: 'var(--text-muted)' }}>kg ×</span>
-                                    {(() => {
-                                      const exIsUnilateral = checkIsUnilateral(ex.name);
-                                      return (
-                                        <input 
-                                          type="number" 
-                                          placeholder={lang === 'fa' 
-                                            ? (exIsUnilateral ? "تکرار/طرف" : "تکرار") 
-                                            : (exIsUnilateral ? "Reps/side" : "Reps")} 
-                                          value={ex.reps} 
-                                          onChange={(e) => handleUpdateBaselineEx(idx, 'reps', parseInt(e.target.value) || 0)}
-                                          style={{ width: '70px', padding: '10px 12px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--border-color)', color: 'var(--text-light)', outline: 'none' }}
-                                        />
-                                      );
-                                    })()}
+                              {/* Divider */}
+                              <div style={{ height: '1px', background: 'var(--border-color)', opacity: 0.5 }}></div>
+
+                              {/* Action Row: Toggle and Inputs */}
+                              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                  <div 
+                                    onClick={() => handleToggleKnown(ex.name)}
+                                    style={{
+                                      width: '40px', height: '22px', borderRadius: '11px',
+                                      background: isKnown ? 'var(--primary)' : 'rgba(255,255,255,0.1)',
+                                      position: 'relative', cursor: 'pointer', transition: 'background 0.3s'
+                                    }}
+                                  >
+                                    <div style={{
+                                      position: 'absolute', top: '3px', left: isKnown ? '21px' : '3px',
+                                      width: '16px', height: '16px', borderRadius: '50%', background: '#fff',
+                                      transition: 'left 0.3s', boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                                    }} />
                                   </div>
-                                ) : (
-                                  <div style={{
-                                    padding: '6px 12px', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.1)',
-                                    background: 'rgba(0,0,0,0.3)', color: 'var(--text-muted)', fontSize: '11px', 
-                                    textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: '600',
-                                    animation: 'fadeIn 0.3s ease-out'
-                                  }}>
-                                    Marked for Calibration
-                                  </div>
-                                )}
+                                  <span style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
+                                    I know my 1RM
+                                  </span>
+                                </div>
+
+                                <div style={{ minHeight: '40px', display: 'flex', alignItems: 'center' }}>
+                                  {isKnown ? (
+                                    <div style={{ display: 'flex', gap: '8px', alignItems: 'center', animation: 'fadeIn 0.3s ease-out' }}>
+                                      {(() => {
+                                        const exIsDumbbell = checkIsDumbbell(ex.name);
+                                        const exIsAssisted = checkIsAssisted(ex.name);
+                                        const exIsBodyweight = checkIsBodyweight(ex.name);
+                                        return (
+                                          <input 
+                                            type="number" 
+                                            placeholder={lang === 'fa' 
+                                              ? (exIsDumbbell ? "وزن/دست" : (exIsAssisted ? "وزن کمکی" : (exIsBodyweight ? "وزن اضافی" : "وزن"))) 
+                                              : (exIsDumbbell ? "Wt/Hand" : (exIsAssisted ? "Assist Wt" : (exIsBodyweight ? "Added Wt" : "Weight")))} 
+                                            value={ex.weight} 
+                                            onChange={(e) => handleUpdateBaselineEx(idx, 'weight', parseFloat(e.target.value) || 0)}
+                                            style={{ width: '80px', padding: '10px 12px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--border-color)', color: 'var(--text-light)', outline: 'none' }}
+                                          />
+                                        );
+                                      })()}
+                                      <span style={{ color: 'var(--text-muted)' }}>kg ×</span>
+                                      {(() => {
+                                        const exIsUnilateral = checkIsUnilateral(ex.name);
+                                        return (
+                                          <input 
+                                            type="number" 
+                                            placeholder={lang === 'fa' 
+                                              ? (exIsUnilateral ? "تکرار/طرف" : "تکرار") 
+                                              : (exIsUnilateral ? "Reps/side" : "Reps")} 
+                                            value={ex.reps} 
+                                            onChange={(e) => handleUpdateBaselineEx(idx, 'reps', parseInt(e.target.value) || 0)}
+                                            style={{ width: '70px', padding: '10px 12px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--border-color)', color: 'var(--text-light)', outline: 'none' }}
+                                          />
+                                        );
+                                      })()}
+                                    </div>
+                                  ) : (
+                                    <div style={{
+                                      padding: '6px 12px', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.1)',
+                                      background: 'rgba(0,0,0,0.3)', color: 'var(--text-muted)', fontSize: '11px', 
+                                      textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: '600',
+                                      animation: 'fadeIn 0.3s ease-out'
+                                    }}>
+                                      Marked for Calibration
+                                    </div>
+                                  )}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        );
-                      })}
+                          );
+                        })
+                      )}
                     </div>
 
                     <div style={{ marginTop: '32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
