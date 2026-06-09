@@ -221,12 +221,13 @@ body[dir="rtl"] {
   border-radius: var(--radius-lg);
   padding: 28px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  transition: var(--transition-smooth);
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
   border-color: rgba(255, 255, 255, 0.15);
   background: var(--bg-card-hover);
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-title {
@@ -854,7 +855,7 @@ h1.section-title {
   text-align: center;
   position: relative;
   overflow: hidden;
-  transition: var(--transition-smooth);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .metric-card::before {
@@ -869,6 +870,7 @@ h1.section-title {
 .metric-card:hover {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.2);
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .metric-card:hover::before {

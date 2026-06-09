@@ -62,23 +62,27 @@ export default function MuscleHeatmap({ mesocycle }) {
     <div className="heatmap-container">
       <div className="heatmap-visuals" style={{ display: 'flex', gap: '40px', justifyContent: 'center' }}>
         <div className="heatmap-figure" style={{ textAlign: 'center', width: '160px' }}>
-          <Model
-            data={data}
-            style={{ width: '160px', padding: '10px' }}
-            highlightedColors={colors}
-            bodyColor="rgba(255, 255, 255, 0.05)"
-          />
+          <div style={{ minHeight: '350px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Model
+              data={data}
+              style={{ width: '160px', padding: '10px' }}
+              highlightedColors={colors}
+              bodyColor="rgba(255, 255, 255, 0.05)"
+            />
+          </div>
           <div className="figure-label" style={{ marginTop: '12px' }}>FRONT</div>
         </div>
 
         <div className="heatmap-figure" style={{ textAlign: 'center', width: '160px' }}>
-          <Model
-            type="posterior"
-            data={data}
-            style={{ width: '160px', padding: '10px' }}
-            highlightedColors={colors}
-            bodyColor="rgba(255, 255, 255, 0.05)"
-          />
+          <div style={{ minHeight: '350px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Model
+              type="posterior"
+              data={data}
+              style={{ width: '160px', padding: '10px' }}
+              highlightedColors={colors}
+              bodyColor="rgba(255, 255, 255, 0.05)"
+            />
+          </div>
           <div className="figure-label" style={{ marginTop: '12px' }}>BACK</div>
         </div>
       </div>

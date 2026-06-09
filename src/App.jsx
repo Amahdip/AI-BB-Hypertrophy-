@@ -161,6 +161,7 @@ function App() {
 
   const [selectedMuscle, setSelectedMuscle] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [hoveredExerciseId, setHoveredExerciseId] = useState(null);
 
   const getMuscleMatchStatus = (ex) => {
     if (!selectedMuscle) return 'all'; // Show all if nothing selected
@@ -189,42 +190,74 @@ function App() {
   const primaryExercises = filteredDb.filter(ex => getMuscleMatchStatus(ex) === 'primary' || getMuscleMatchStatus(ex) === 'all');
   const secondaryExercises = selectedMuscle ? filteredDb.filter(ex => getMuscleMatchStatus(ex) === 'secondary') : [];
 
-  const renderExerciseCard = (ex, isSecondary = false) => (
-    <div 
-      key={ex.id}
-      className="card"
-      style={{ 
-        padding: '12px', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: '12px', 
-        transition: 'transform 0.2s, box-shadow 0.2s',
-        opacity: isSecondary ? 0.85 : 1
-      }}
-      onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.4)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)' }}
-      onMouseLeave={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.borderColor = 'var(--border-color)' }}
-      onClick={() => setBeginnerLogModal({ exercise: ex })}
-    >
-      <div style={{ 
-        height: '140px', borderRadius: '8px', overflow: 'hidden', 
-        background: '#1e293b', backgroundImage: `url(${ex.thumbnail_url})`,
-        backgroundSize: 'cover', backgroundPosition: 'center',
-        position: 'relative'
-      }}>
-        {isSecondary && (
-          <div style={{
-            position: 'absolute', top: '8px', right: '8px', 
-            background: 'rgba(0,0,0,0.7)', color: 'var(--text-muted)', 
-            padding: '4px 8px', borderRadius: '12px', fontSize: '10px', fontWeight: 'bold',
-            textTransform: 'uppercase', letterSpacing: '0.05em'
-          }}>
-            Stabilizer
+  const renderExerciseCard = (ex, isSecondary = false) => {
+    const isHovered = hoveredExerciseId === ex.id;
+    return (
+      <div 
+        key={ex.id}
+        className="card"
+        style={{ 
+          padding: '12px', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: '12px', 
+          transition: 'transform 0.2s, box-shadow 0.2s',
+          opacity: isSecondary ? 0.85 : 1
+        }}
+        onMouseEnter={(e) => { 
+          setHoveredExerciseId(ex.id);
+          e.currentTarget.style.transform = 'translateY(-2px)'; 
+          e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.4)'; 
+          e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; 
+        }}
+        onMouseLeave={(e) => { 
+          setHoveredExerciseId(null);
+          e.currentTarget.style.transform = 'none'; 
+          e.currentTarget.style.boxShadow = 'none'; 
+          e.currentTarget.style.borderColor = 'var(--border-color)'; 
+        }}
+        onClick={() => setBeginnerLogModal({ exercise: ex })}
+      >
+        <div style={{ 
+          height: '140px', borderRadius: '8px', overflow: 'hidden', 
+          background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(30, 41, 59, 0.5))',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          position: 'relative', border: '1px solid rgba(255, 255, 255, 0.03)'
+        }}>
+          {/* CSS Fallback Placeholder: Dumbbell icon and equipment label */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', opacity: 0.3 }}>
+            <Dumbbell size={28} style={{ color: 'var(--primary)' }} />
+            <span style={{ fontSize: '9px', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: '700', color: 'var(--text-muted)' }}>
+              {ex.equipment_type || 'Exercise'}
+            </span>
           </div>
-        )}
+          
+          {/* Actual Image if it exists (loads GIF on hover, static image otherwise) */}
+          {(ex.gif_url || ex.thumbnail_url) && (
+            <div style={{
+              position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+              backgroundImage: `url(${isHovered && ex.gif_url ? ex.gif_url : (ex.thumbnail_url || ex.gif_url)})`,
+              backgroundSize: 'cover', backgroundPosition: 'center',
+              zIndex: 1
+            }} />
+          )}
+
+          {isSecondary && (
+            <div style={{
+              position: 'absolute', top: '8px', right: '8px', 
+              background: 'rgba(0,0,0,0.75)', color: 'var(--text-muted)', 
+              padding: '4px 8px', borderRadius: '12px', fontSize: '10px', fontWeight: 'bold',
+              textTransform: 'uppercase', letterSpacing: '0.05em',
+              zIndex: 2
+            }}>
+              Stabilizer
+            </div>
+          )}
+        </div>
+        <div>
+          <div style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: '600', marginBottom: '4px' }}>{ex.category}</div>
+          <div style={{ fontWeight: '600', fontSize: '15px' }}>{lang === 'fa' ? ex.name_fa : ex.name_en}</div>
+        </div>
       </div>
-      <div>
-        <div style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: '600', marginBottom: '4px' }}>{ex.category}</div>
-        <div style={{ fontWeight: '600', fontSize: '15px' }}>{lang === 'fa' ? ex.name_fa : ex.name_en}</div>
-      </div>
-    </div>
-  );
+    );
+  };
 
   // Calorie & Macro calculator state (Nutrition tab)
   const [bodyweight, setBodyweight] = useState(() => parseFloat(localStorage.getItem('nutrition_bw')) || 80);
@@ -1191,6 +1224,18 @@ function App() {
                         `}</style>
                         <h3 style={{ marginBottom: '8px', fontSize: '22px' }}>{beginnerLogModal.exercise.name_en || beginnerLogModal.exercise.name}</h3>
                         <p style={{ color: 'var(--text-muted)', marginBottom: '24px' }}>What did you lift today?</p>
+                        
+                        {/* Looping exercise animation GIF */}
+                        {(beginnerLogModal.exercise.gif_url || beginnerLogModal.exercise.thumbnail_url) && (
+                          <div style={{
+                            height: '220px', borderRadius: '12px', overflow: 'hidden',
+                            marginBottom: '24px',
+                            background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(30, 41, 59, 0.5))',
+                            backgroundImage: `url(${beginnerLogModal.exercise.gif_url || beginnerLogModal.exercise.thumbnail_url})`,
+                            backgroundSize: 'cover', backgroundPosition: 'center',
+                            border: '1px solid rgba(255, 255, 255, 0.05)'
+                          }} />
+                        )}
                         
                         <div style={{ display: 'flex', gap: '16px', marginBottom: '32px' }}>
                           <div style={{ flex: 1 }}>

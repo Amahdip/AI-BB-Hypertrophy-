@@ -6,14 +6,15 @@
     "category": "Chest",
     "difficulty": "Advanced",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0025-EIeI8Vf.jpg",
     "primary_muscle": "chest",
     "secondary_muscles": [
       "front-deltoids",
       "triceps"
     ],
     "equipment_type": "Barbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0025-EIeI8Vf.gif"
   },
   {
     "id": "chest_02",
@@ -22,14 +23,15 @@
     "category": "Chest",
     "difficulty": "Intermediate",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0314-ns0SIbU.jpg",
     "primary_muscle": "chest",
     "secondary_muscles": [
       "front-deltoids",
       "triceps"
     ],
     "equipment_type": "Dumbbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0314-ns0SIbU.gif"
   },
   {
     "id": "chest_03",
@@ -38,14 +40,15 @@
     "category": "Chest",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0577-T0yTjgW.jpg",
     "primary_muscle": "chest",
     "secondary_muscles": [
       "front-deltoids",
       "triceps"
     ],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0577-T0yTjgW.gif"
   },
   {
     "id": "chest_04",
@@ -54,13 +57,14 @@
     "category": "Chest",
     "difficulty": "Intermediate",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/1269-UKWTJWR.jpg",
     "primary_muscle": "chest",
     "secondary_muscles": [
       "front-deltoids"
     ],
     "equipment_type": "Cable",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/1269-UKWTJWR.gif"
   },
   {
     "id": "chest_05",
@@ -69,11 +73,12 @@
     "category": "Chest",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0596-v3xmPAR.jpg",
     "primary_muscle": "chest",
     "secondary_muscles": [],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0596-v3xmPAR.gif"
   },
   {
     "id": "chest_06",
@@ -82,13 +87,14 @@
     "category": "Chest",
     "difficulty": "Intermediate",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0308-yz9nUhF.jpg",
     "primary_muscle": "chest",
     "secondary_muscles": [
       "front-deltoids"
     ],
     "equipment_type": "Dumbbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0308-yz9nUhF.gif"
   },
   {
     "id": "back_01",
@@ -97,14 +103,15 @@
     "category": "Back",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/2330-LEprlgG.jpg",
     "primary_muscle": "upper-back",
     "secondary_muscles": [
       "biceps",
       "back-deltoids"
     ],
     "equipment_type": "Cable",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/2330-LEprlgG.gif"
   },
   {
     "id": "back_02",
@@ -113,7 +120,7 @@
     "category": "Back",
     "difficulty": "Advanced",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0027-eZyBC3j.jpg",
     "primary_muscle": "upper-back",
     "secondary_muscles": [
       "lower-back",
@@ -121,7 +128,8 @@
       "back-deltoids"
     ],
     "equipment_type": "Barbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0027-eZyBC3j.gif"
   },
   {
     "id": "back_03",
@@ -130,14 +138,15 @@
     "category": "Back",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0159-kesXOpB.jpg",
     "primary_muscle": "upper-back",
     "secondary_muscles": [
       "biceps",
       "back-deltoids"
     ],
     "equipment_type": "Cable",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0159-kesXOpB.gif"
   },
   {
     "id": "back_04",
@@ -146,14 +155,15 @@
     "category": "Back",
     "difficulty": "Advanced",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0652-lBDjFxJ.jpg",
     "primary_muscle": "upper-back",
     "secondary_muscles": [
       "biceps",
       "core"
     ],
     "equipment_type": "Bodyweight",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0652-lBDjFxJ.gif"
   },
   {
     "id": "back_05",
@@ -162,14 +172,15 @@
     "category": "Back",
     "difficulty": "Intermediate",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0293-BJ0Hz5L.jpg",
     "primary_muscle": "upper-back",
     "secondary_muscles": [
       "biceps",
       "back-deltoids"
     ],
     "equipment_type": "Dumbbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0293-BJ0Hz5L.gif"
   },
   {
     "id": "back_06",
@@ -178,14 +189,15 @@
     "category": "Back",
     "difficulty": "Intermediate",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0606-aaXr7ld.jpg",
     "primary_muscle": "upper-back",
     "secondary_muscles": [
       "biceps",
       "back-deltoids"
     ],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0606-aaXr7ld.gif"
   },
   {
     "id": "lowerback_01",
@@ -194,7 +206,7 @@
     "category": "Back",
     "difficulty": "Advanced",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0032-ila4NZS.jpg",
     "primary_muscle": "lower-back",
     "secondary_muscles": [
       "gluteal",
@@ -203,7 +215,8 @@
       "trapezius"
     ],
     "equipment_type": "Barbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0032-ila4NZS.gif"
   },
   {
     "id": "lowerback_02",
@@ -212,14 +225,15 @@
     "category": "Back",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0489-zhMwOwE.jpg",
     "primary_muscle": "lower-back",
     "secondary_muscles": [
       "gluteal",
       "hamstring"
     ],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0489-zhMwOwE.gif"
   },
   {
     "id": "lowerback_03",
@@ -228,14 +242,15 @@
     "category": "Back",
     "difficulty": "Advanced",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0044-XlZ4lAC.jpg",
     "primary_muscle": "lower-back",
     "secondary_muscles": [
       "gluteal",
       "hamstring"
     ],
     "equipment_type": "Barbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0044-XlZ4lAC.gif"
   },
   {
     "id": "traps_01",
@@ -244,13 +259,14 @@
     "category": "Shoulders",
     "difficulty": "Intermediate",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0095-dG7tG5y.jpg",
     "primary_muscle": "trapezius",
     "secondary_muscles": [
       "forearm"
     ],
     "equipment_type": "Barbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0095-dG7tG5y.gif"
   },
   {
     "id": "traps_02",
@@ -259,13 +275,14 @@
     "category": "Shoulders",
     "difficulty": "Beginner",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0406-NJzBsGJ.jpg",
     "primary_muscle": "trapezius",
     "secondary_muscles": [
       "forearm"
     ],
     "equipment_type": "Dumbbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0406-NJzBsGJ.gif"
   },
   {
     "id": "shoulders_01",
@@ -274,14 +291,15 @@
     "category": "Shoulders",
     "difficulty": "Advanced",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0091-kTbSH9h.jpg",
     "primary_muscle": "front-deltoids",
     "secondary_muscles": [
       "triceps",
       "trapezius"
     ],
     "equipment_type": "Barbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0091-kTbSH9h.gif"
   },
   {
     "id": "shoulders_02",
@@ -290,13 +308,14 @@
     "category": "Shoulders",
     "difficulty": "Beginner",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0334-DsgkuIt.jpg",
     "primary_muscle": "front-deltoids",
     "secondary_muscles": [
       "trapezius"
     ],
     "equipment_type": "Dumbbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0334-DsgkuIt.gif"
   },
   {
     "id": "shoulders_03",
@@ -305,13 +324,14 @@
     "category": "Shoulders",
     "difficulty": "Intermediate",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0178-goJ6ezq.jpg",
     "primary_muscle": "front-deltoids",
     "secondary_muscles": [
       "trapezius"
     ],
     "equipment_type": "Cable",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0178-goJ6ezq.gif"
   },
   {
     "id": "shoulders_04",
@@ -320,14 +340,15 @@
     "category": "Shoulders",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0602-myfUsKf.jpg",
     "primary_muscle": "back-deltoids",
     "secondary_muscles": [
       "trapezius",
       "upper-back"
     ],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0602-myfUsKf.gif"
   },
   {
     "id": "shoulders_05",
@@ -336,14 +357,15 @@
     "category": "Shoulders",
     "difficulty": "Intermediate",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0233-ZfyAGhK.jpg",
     "primary_muscle": "back-deltoids",
     "secondary_muscles": [
       "trapezius",
       "upper-back"
     ],
     "equipment_type": "Cable",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0233-ZfyAGhK.gif"
   },
   {
     "id": "shoulders_06",
@@ -352,11 +374,12 @@
     "category": "Shoulders",
     "difficulty": "Beginner",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0310-3eGE2JC.jpg",
     "primary_muscle": "front-deltoids",
     "secondary_muscles": [],
     "equipment_type": "Dumbbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0310-3eGE2JC.gif"
   },
   {
     "id": "biceps_01",
@@ -365,13 +388,14 @@
     "category": "Arms",
     "difficulty": "Intermediate",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0031-25GPyDY.jpg",
     "primary_muscle": "biceps",
     "secondary_muscles": [
       "forearm"
     ],
     "equipment_type": "Barbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0031-25GPyDY.gif"
   },
   {
     "id": "biceps_02",
@@ -380,13 +404,14 @@
     "category": "Arms",
     "difficulty": "Beginner",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0285-BU15nH4.jpg",
     "primary_muscle": "biceps",
     "secondary_muscles": [
       "forearm"
     ],
     "equipment_type": "Dumbbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0285-BU15nH4.gif"
   },
   {
     "id": "biceps_03",
@@ -395,13 +420,14 @@
     "category": "Arms",
     "difficulty": "Intermediate",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0195-P2lNrGL.jpg",
     "primary_muscle": "biceps",
     "secondary_muscles": [
       "forearm"
     ],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0195-P2lNrGL.gif"
   },
   {
     "id": "biceps_04",
@@ -410,13 +436,14 @@
     "category": "Arms",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0868-G08RZcQ.jpg",
     "primary_muscle": "biceps",
     "secondary_muscles": [
       "forearm"
     ],
     "equipment_type": "Cable",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0868-G08RZcQ.gif"
   },
   {
     "id": "triceps_01",
@@ -425,11 +452,12 @@
     "category": "Arms",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0241-gAwDzB3.jpg",
     "primary_muscle": "triceps",
     "secondary_muscles": [],
     "equipment_type": "Cable",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0241-gAwDzB3.gif"
   },
   {
     "id": "triceps_02",
@@ -438,11 +466,12 @@
     "category": "Arms",
     "difficulty": "Intermediate",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0092-5uFK1xr.jpg",
     "primary_muscle": "triceps",
     "secondary_muscles": [],
     "equipment_type": "Dumbbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0092-5uFK1xr.gif"
   },
   {
     "id": "triceps_03",
@@ -451,11 +480,12 @@
     "category": "Arms",
     "difficulty": "Intermediate",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0060-h8LFzo9.jpg",
     "primary_muscle": "triceps",
     "secondary_muscles": [],
     "equipment_type": "Barbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0060-h8LFzo9.gif"
   },
   {
     "id": "triceps_04",
@@ -464,14 +494,15 @@
     "category": "Arms",
     "difficulty": "Advanced",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0751-WcHl7ru.jpg",
     "primary_muscle": "triceps",
     "secondary_muscles": [
       "chest",
       "front-deltoids"
     ],
     "equipment_type": "Barbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0751-WcHl7ru.gif"
   },
   {
     "id": "forearms_01",
@@ -480,11 +511,12 @@
     "category": "Arms",
     "difficulty": "Beginner",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0126-82LxxkW.jpg",
     "primary_muscle": "forearm",
     "secondary_muscles": [],
     "equipment_type": "Barbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0126-82LxxkW.gif"
   },
   {
     "id": "forearms_02",
@@ -493,13 +525,14 @@
     "category": "Arms",
     "difficulty": "Intermediate",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0080-xNrS20v.jpg",
     "primary_muscle": "forearm",
     "secondary_muscles": [
       "biceps"
     ],
     "equipment_type": "Barbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0080-xNrS20v.gif"
   },
   {
     "id": "quads_01",
@@ -508,7 +541,7 @@
     "category": "Legs",
     "difficulty": "Advanced",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0043-qXTaZnJ.jpg",
     "primary_muscle": "quadriceps",
     "secondary_muscles": [
       "gluteal",
@@ -516,7 +549,8 @@
       "lower-back"
     ],
     "equipment_type": "Barbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0043-qXTaZnJ.gif"
   },
   {
     "id": "quads_02",
@@ -525,14 +559,15 @@
     "category": "Legs",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0739-10Z2DXU.jpg",
     "primary_muscle": "quadriceps",
     "secondary_muscles": [
       "gluteal",
       "hamstring"
     ],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0739-10Z2DXU.gif"
   },
   {
     "id": "quads_03",
@@ -541,11 +576,12 @@
     "category": "Legs",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0585-my33uHU.jpg",
     "primary_muscle": "quadriceps",
     "secondary_muscles": [],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0585-my33uHU.gif"
   },
   {
     "id": "quads_04",
@@ -554,14 +590,15 @@
     "category": "Legs",
     "difficulty": "Intermediate",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0743-Qa55kX1.jpg",
     "primary_muscle": "quadriceps",
     "secondary_muscles": [
       "gluteal",
       "hamstring"
     ],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0743-Qa55kX1.gif"
   },
   {
     "id": "quads_05",
@@ -570,13 +607,14 @@
     "category": "Legs",
     "difficulty": "Advanced",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0410-qx4fgX7.jpg",
     "primary_muscle": "quadriceps",
     "secondary_muscles": [
       "gluteal"
     ],
     "equipment_type": "Dumbbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0410-qx4fgX7.gif"
   },
   {
     "id": "hams_01",
@@ -585,14 +623,15 @@
     "category": "Legs",
     "difficulty": "Advanced",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0085-wQ2c4XD.jpg",
     "primary_muscle": "hamstring",
     "secondary_muscles": [
       "gluteal",
       "lower-back"
     ],
     "equipment_type": "Barbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0085-wQ2c4XD.gif"
   },
   {
     "id": "hams_02",
@@ -601,13 +640,14 @@
     "category": "Legs",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0599-Zg3XY7P.jpg",
     "primary_muscle": "hamstring",
     "secondary_muscles": [
       "calves"
     ],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0599-Zg3XY7P.gif"
   },
   {
     "id": "hams_03",
@@ -616,13 +656,14 @@
     "category": "Legs",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0586-17lJ1kr.jpg",
     "primary_muscle": "hamstring",
     "secondary_muscles": [
       "calves"
     ],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0586-17lJ1kr.gif"
   },
   {
     "id": "glutes_01",
@@ -631,13 +672,14 @@
     "category": "Legs",
     "difficulty": "Intermediate",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/1409-qKBpF7I.jpg",
     "primary_muscle": "gluteal",
     "secondary_muscles": [
       "hamstring"
     ],
     "equipment_type": "Barbell",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/1409-qKBpF7I.gif"
   },
   {
     "id": "glutes_02",
@@ -646,14 +688,15 @@
     "category": "Legs",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0196-OM46QHm.jpg",
     "primary_muscle": "gluteal",
     "secondary_muscles": [
       "hamstring",
       "lower-back"
     ],
     "equipment_type": "Cable",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0196-OM46QHm.gif"
   },
   {
     "id": "glutes_03",
@@ -662,11 +705,12 @@
     "category": "Legs",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0860-HEJ6DIX.jpg",
     "primary_muscle": "gluteal",
     "secondary_muscles": [],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0860-HEJ6DIX.gif"
   },
   {
     "id": "calves_01",
@@ -675,11 +719,12 @@
     "category": "Legs",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/1375-yl2IYyy.jpg",
     "primary_muscle": "calves",
     "secondary_muscles": [],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/1375-yl2IYyy.gif"
   },
   {
     "id": "calves_02",
@@ -688,11 +733,12 @@
     "category": "Legs",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0594-bOOdeyc.jpg",
     "primary_muscle": "calves",
     "secondary_muscles": [],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0594-bOOdeyc.gif"
   },
   {
     "id": "abd_01",
@@ -701,13 +747,14 @@
     "category": "Legs",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/1427-mQ1tBXn.jpg",
     "primary_muscle": "abductors",
     "secondary_muscles": [
       "gluteal"
     ],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/1427-mQ1tBXn.gif"
   },
   {
     "id": "add_01",
@@ -716,11 +763,12 @@
     "category": "Legs",
     "difficulty": "Beginner",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0598-oHsrypV.jpg",
     "primary_muscle": "adductor",
     "secondary_muscles": [],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0598-oHsrypV.gif"
   },
   {
     "id": "abs_01",
@@ -729,11 +777,12 @@
     "category": "Core",
     "difficulty": "Beginner",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0274-TFqbd8t.jpg",
     "primary_muscle": "abs",
     "secondary_muscles": [],
     "equipment_type": "Bodyweight",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0274-TFqbd8t.gif"
   },
   {
     "id": "abs_02",
@@ -742,11 +791,12 @@
     "category": "Core",
     "difficulty": "Intermediate",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0175-WW95auq.jpg",
     "primary_muscle": "abs",
     "secondary_muscles": [],
     "equipment_type": "Cable",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0175-WW95auq.gif"
   },
   {
     "id": "abs_03",
@@ -755,13 +805,14 @@
     "category": "Core",
     "difficulty": "Intermediate",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0689-Hgs6Nl1.jpg",
     "primary_muscle": "abs",
     "secondary_muscles": [
       "obliques"
     ],
     "equipment_type": "Machine",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0689-Hgs6Nl1.gif"
   },
   {
     "id": "obliques_01",
@@ -770,13 +821,14 @@
     "category": "Core",
     "difficulty": "Beginner",
     "is_machine": false,
-    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0687-XVDdcoj.jpg",
     "primary_muscle": "obliques",
     "secondary_muscles": [
       "abs"
     ],
     "equipment_type": "Bodyweight",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0687-XVDdcoj.gif"
   },
   {
     "id": "obliques_02",
@@ -785,12 +837,13 @@
     "category": "Core",
     "difficulty": "Intermediate",
     "is_machine": true,
-    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "thumbnail_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/images/0243-aVs3BR3.jpg",
     "primary_muscle": "obliques",
     "secondary_muscles": [
       "abs"
     ],
     "equipment_type": "Cable",
-    "hls_manifest_url": null
+    "hls_manifest_url": null,
+    "gif_url": "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/videos/0243-aVs3BR3.gif"
   }
 ]

@@ -44,27 +44,31 @@ export default function ExerciseFilterMap({ selectedMuscle, onSelectMuscle }) {
 
       <div style={{ display: 'flex', gap: '40px', justifyContent: 'center' }}>
         <div style={{ textAlign: 'center', width: '160px' }}>
-          <Model
-            type="anterior"
-            data={data}
-            style={{ width: '160px', padding: '10px', cursor: 'pointer' }}
-            highlightedColors={['var(--primary)']}
-            bodyColor="rgba(255, 255, 255, 0.05)"
-            onClick={handleClick}
-          />
+          <div style={{ minHeight: '350px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Model
+              type="anterior"
+              data={data}
+              style={{ width: '160px', padding: '10px', cursor: 'pointer' }}
+              highlightedColors={['var(--primary)']}
+              bodyColor="rgba(255, 255, 255, 0.05)"
+              onClick={handleClick}
+            />
+          </div>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: '14px', fontWeight: '700', letterSpacing: '2px', color: 'var(--text-muted)', marginTop: '12px' }}>
             FRONT
           </div>
         </div>
         <div style={{ textAlign: 'center', width: '160px' }}>
-          <Model
-            type="posterior"
-            data={data}
-            style={{ width: '160px', padding: '10px', cursor: 'pointer' }}
-            highlightedColors={['var(--primary)']}
-            bodyColor="rgba(255, 255, 255, 0.05)"
-            onClick={handleClick}
-          />
+          <div style={{ minHeight: '350px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Model
+              type="posterior"
+              data={data}
+              style={{ width: '160px', padding: '10px', cursor: 'pointer' }}
+              highlightedColors={['var(--primary)']}
+              bodyColor="rgba(255, 255, 255, 0.05)"
+              onClick={handleClick}
+            />
+          </div>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: '14px', fontWeight: '700', letterSpacing: '2px', color: 'var(--text-muted)', marginTop: '12px' }}>
             BACK
           </div>
