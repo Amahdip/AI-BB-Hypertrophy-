@@ -1,0 +1,796 @@
+[
+  {
+    "id": "chest_01",
+    "name_en": "Barbell Bench Press",
+    "name_fa": "پرس سینه هالتر",
+    "category": "Chest",
+    "difficulty": "Advanced",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "chest",
+    "secondary_muscles": [
+      "front-deltoids",
+      "triceps"
+    ],
+    "equipment_type": "Barbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "chest_02",
+    "name_en": "Incline Dumbbell Press",
+    "name_fa": "پرس بالاسینه دمبل",
+    "category": "Chest",
+    "difficulty": "Intermediate",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "primary_muscle": "chest",
+    "secondary_muscles": [
+      "front-deltoids",
+      "triceps"
+    ],
+    "equipment_type": "Dumbbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "chest_03",
+    "name_en": "Machine Chest Press",
+    "name_fa": "پرس سینه دستگاه نشسته",
+    "category": "Chest",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "chest",
+    "secondary_muscles": [
+      "front-deltoids",
+      "triceps"
+    ],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "chest_04",
+    "name_en": "Cable Crossover",
+    "name_fa": "کراس اور سیم کش",
+    "category": "Chest",
+    "difficulty": "Intermediate",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "chest",
+    "secondary_muscles": [
+      "front-deltoids"
+    ],
+    "equipment_type": "Cable",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "chest_05",
+    "name_en": "Pec Deck Fly",
+    "name_fa": "قفسه سینه دستگاه (پک دک)",
+    "category": "Chest",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "chest",
+    "secondary_muscles": [],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "chest_06",
+    "name_en": "Dumbbell Fly",
+    "name_fa": "قفسه سینه دمبل",
+    "category": "Chest",
+    "difficulty": "Intermediate",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "chest",
+    "secondary_muscles": [
+      "front-deltoids"
+    ],
+    "equipment_type": "Dumbbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "back_01",
+    "name_en": "Lat Pulldown",
+    "name_fa": "زیر بغل سیم کش از جلو",
+    "category": "Back",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "primary_muscle": "upper-back",
+    "secondary_muscles": [
+      "biceps",
+      "back-deltoids"
+    ],
+    "equipment_type": "Cable",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "back_02",
+    "name_en": "Barbell Row",
+    "name_fa": "زیر بغل هالتر خم",
+    "category": "Back",
+    "difficulty": "Advanced",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "upper-back",
+    "secondary_muscles": [
+      "lower-back",
+      "biceps",
+      "back-deltoids"
+    ],
+    "equipment_type": "Barbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "back_03",
+    "name_en": "Seated Cable Row",
+    "name_fa": "قایقی سیم کش",
+    "category": "Back",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "primary_muscle": "upper-back",
+    "secondary_muscles": [
+      "biceps",
+      "back-deltoids"
+    ],
+    "equipment_type": "Cable",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "back_04",
+    "name_en": "Pull-up",
+    "name_fa": "بارفیکس",
+    "category": "Back",
+    "difficulty": "Advanced",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "upper-back",
+    "secondary_muscles": [
+      "biceps",
+      "core"
+    ],
+    "equipment_type": "Bodyweight",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "back_05",
+    "name_en": "Dumbbell Row",
+    "name_fa": "زیر بغل تک دمبل خم",
+    "category": "Back",
+    "difficulty": "Intermediate",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "primary_muscle": "upper-back",
+    "secondary_muscles": [
+      "biceps",
+      "back-deltoids"
+    ],
+    "equipment_type": "Dumbbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "back_06",
+    "name_en": "T-Bar Row",
+    "name_fa": "تی بار",
+    "category": "Back",
+    "difficulty": "Intermediate",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "upper-back",
+    "secondary_muscles": [
+      "biceps",
+      "back-deltoids"
+    ],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "lowerback_01",
+    "name_en": "Deadlift",
+    "name_fa": "ددلیفت",
+    "category": "Back",
+    "difficulty": "Advanced",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "lower-back",
+    "secondary_muscles": [
+      "gluteal",
+      "hamstring",
+      "quadriceps",
+      "trapezius"
+    ],
+    "equipment_type": "Barbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "lowerback_02",
+    "name_en": "Hyperextension",
+    "name_fa": "فیله کمر دستگاه",
+    "category": "Back",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "lower-back",
+    "secondary_muscles": [
+      "gluteal",
+      "hamstring"
+    ],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "lowerback_03",
+    "name_en": "Good Morning",
+    "name_fa": "گود مورنینگ",
+    "category": "Back",
+    "difficulty": "Advanced",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "lower-back",
+    "secondary_muscles": [
+      "gluteal",
+      "hamstring"
+    ],
+    "equipment_type": "Barbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "traps_01",
+    "name_en": "Barbell Shrug",
+    "name_fa": "شراگ هالتر",
+    "category": "Shoulders",
+    "difficulty": "Intermediate",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "trapezius",
+    "secondary_muscles": [
+      "forearm"
+    ],
+    "equipment_type": "Barbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "traps_02",
+    "name_en": "Dumbbell Shrug",
+    "name_fa": "شراگ دمبل",
+    "category": "Shoulders",
+    "difficulty": "Beginner",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "primary_muscle": "trapezius",
+    "secondary_muscles": [
+      "forearm"
+    ],
+    "equipment_type": "Dumbbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "shoulders_01",
+    "name_en": "Overhead Press",
+    "name_fa": "پرس سرشانه هالتر",
+    "category": "Shoulders",
+    "difficulty": "Advanced",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "front-deltoids",
+    "secondary_muscles": [
+      "triceps",
+      "trapezius"
+    ],
+    "equipment_type": "Barbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "shoulders_02",
+    "name_en": "Dumbbell Lateral Raise",
+    "name_fa": "نشر جانب دمبل",
+    "category": "Shoulders",
+    "difficulty": "Beginner",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "primary_muscle": "front-deltoids",
+    "secondary_muscles": [
+      "trapezius"
+    ],
+    "equipment_type": "Dumbbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "shoulders_03",
+    "name_en": "Cable Lateral Raise",
+    "name_fa": "نشر جانب سیم کش",
+    "category": "Shoulders",
+    "difficulty": "Intermediate",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "front-deltoids",
+    "secondary_muscles": [
+      "trapezius"
+    ],
+    "equipment_type": "Cable",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "shoulders_04",
+    "name_en": "Reverse Pec Deck",
+    "name_fa": "فلای معکوس دستگاه",
+    "category": "Shoulders",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "back-deltoids",
+    "secondary_muscles": [
+      "trapezius",
+      "upper-back"
+    ],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "shoulders_05",
+    "name_en": "Face Pull",
+    "name_fa": "فیس پول",
+    "category": "Shoulders",
+    "difficulty": "Intermediate",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "back-deltoids",
+    "secondary_muscles": [
+      "trapezius",
+      "upper-back"
+    ],
+    "equipment_type": "Cable",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "shoulders_06",
+    "name_en": "Dumbbell Front Raise",
+    "name_fa": "نشر از جلو دمبل",
+    "category": "Shoulders",
+    "difficulty": "Beginner",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "primary_muscle": "front-deltoids",
+    "secondary_muscles": [],
+    "equipment_type": "Dumbbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "biceps_01",
+    "name_en": "Barbell Curl",
+    "name_fa": "جلو بازو هالتر",
+    "category": "Arms",
+    "difficulty": "Intermediate",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "biceps",
+    "secondary_muscles": [
+      "forearm"
+    ],
+    "equipment_type": "Barbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "biceps_02",
+    "name_en": "Dumbbell Curl",
+    "name_fa": "جلو بازو دمبل تناوبی",
+    "category": "Arms",
+    "difficulty": "Beginner",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "primary_muscle": "biceps",
+    "secondary_muscles": [
+      "forearm"
+    ],
+    "equipment_type": "Dumbbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "biceps_03",
+    "name_en": "Preacher Curl",
+    "name_fa": "جلو بازو لاری",
+    "category": "Arms",
+    "difficulty": "Intermediate",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "biceps",
+    "secondary_muscles": [
+      "forearm"
+    ],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "biceps_04",
+    "name_en": "Cable Curl",
+    "name_fa": "جلو بازو سیم کش",
+    "category": "Arms",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "biceps",
+    "secondary_muscles": [
+      "forearm"
+    ],
+    "equipment_type": "Cable",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "triceps_01",
+    "name_en": "Triceps Pushdown",
+    "name_fa": "پشت بازو سیم کش",
+    "category": "Arms",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "triceps",
+    "secondary_muscles": [],
+    "equipment_type": "Cable",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "triceps_02",
+    "name_en": "Overhead Triceps Extension",
+    "name_fa": "پشت بازو دمبل پشت سر",
+    "category": "Arms",
+    "difficulty": "Intermediate",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "primary_muscle": "triceps",
+    "secondary_muscles": [],
+    "equipment_type": "Dumbbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "triceps_03",
+    "name_en": "Skullcrushers",
+    "name_fa": "پشت بازو هالتر خوابیده (جمجمه شکن)",
+    "category": "Arms",
+    "difficulty": "Intermediate",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "triceps",
+    "secondary_muscles": [],
+    "equipment_type": "Barbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "triceps_04",
+    "name_en": "Close-Grip Bench Press",
+    "name_fa": "پرس سینه دست جمع",
+    "category": "Arms",
+    "difficulty": "Advanced",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "triceps",
+    "secondary_muscles": [
+      "chest",
+      "front-deltoids"
+    ],
+    "equipment_type": "Barbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "forearms_01",
+    "name_en": "Wrist Curls",
+    "name_fa": "مچ ساعد هالتر",
+    "category": "Arms",
+    "difficulty": "Beginner",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "forearm",
+    "secondary_muscles": [],
+    "equipment_type": "Barbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "forearms_02",
+    "name_en": "Reverse Curls",
+    "name_fa": "جلو بازو هالتر دست برعکس",
+    "category": "Arms",
+    "difficulty": "Intermediate",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "forearm",
+    "secondary_muscles": [
+      "biceps"
+    ],
+    "equipment_type": "Barbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "quads_01",
+    "name_en": "Barbell Squat",
+    "name_fa": "اسکوات هالتر",
+    "category": "Legs",
+    "difficulty": "Advanced",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "quadriceps",
+    "secondary_muscles": [
+      "gluteal",
+      "hamstring",
+      "lower-back"
+    ],
+    "equipment_type": "Barbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "quads_02",
+    "name_en": "Leg Press",
+    "name_fa": "پرس پا دستگاه",
+    "category": "Legs",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "primary_muscle": "quadriceps",
+    "secondary_muscles": [
+      "gluteal",
+      "hamstring"
+    ],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "quads_03",
+    "name_en": "Leg Extension",
+    "name_fa": "جلو پا ماشین",
+    "category": "Legs",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "quadriceps",
+    "secondary_muscles": [],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "quads_04",
+    "name_en": "Hack Squat",
+    "name_fa": "هاک اسکوات",
+    "category": "Legs",
+    "difficulty": "Intermediate",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "quadriceps",
+    "secondary_muscles": [
+      "gluteal",
+      "hamstring"
+    ],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "quads_05",
+    "name_en": "Bulgarian Split Squat",
+    "name_fa": "اسکوات بلغاری",
+    "category": "Legs",
+    "difficulty": "Advanced",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "primary_muscle": "quadriceps",
+    "secondary_muscles": [
+      "gluteal"
+    ],
+    "equipment_type": "Dumbbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "hams_01",
+    "name_en": "Romanian Deadlift",
+    "name_fa": "ددلیفت رومانیایی",
+    "category": "Legs",
+    "difficulty": "Advanced",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "hamstring",
+    "secondary_muscles": [
+      "gluteal",
+      "lower-back"
+    ],
+    "equipment_type": "Barbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "hams_02",
+    "name_en": "Seated Leg Curl",
+    "name_fa": "پشت پا نشسته",
+    "category": "Legs",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "hamstring",
+    "secondary_muscles": [
+      "calves"
+    ],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "hams_03",
+    "name_en": "Lying Leg Curl",
+    "name_fa": "پشت پا خوابیده",
+    "category": "Legs",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "hamstring",
+    "secondary_muscles": [
+      "calves"
+    ],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "glutes_01",
+    "name_en": "Barbell Hip Thrust",
+    "name_fa": "پل باسن هالتر (هیپ تراست)",
+    "category": "Legs",
+    "difficulty": "Intermediate",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "gluteal",
+    "secondary_muscles": [
+      "hamstring"
+    ],
+    "equipment_type": "Barbell",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "glutes_02",
+    "name_en": "Cable Pull Through",
+    "name_fa": "پول ترو سیم کش",
+    "category": "Legs",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "gluteal",
+    "secondary_muscles": [
+      "hamstring",
+      "lower-back"
+    ],
+    "equipment_type": "Cable",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "glutes_03",
+    "name_en": "Glute Kickback",
+    "name_fa": "کیک بک باسن",
+    "category": "Legs",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "gluteal",
+    "secondary_muscles": [],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "calves_01",
+    "name_en": "Standing Calf Raise",
+    "name_fa": "ساق پا ایستاده دستگاه",
+    "category": "Legs",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "calves",
+    "secondary_muscles": [],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "calves_02",
+    "name_en": "Seated Calf Raise",
+    "name_fa": "ساق پا نشسته",
+    "category": "Legs",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "calves",
+    "secondary_muscles": [],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "abd_01",
+    "name_en": "Hip Abductor Machine",
+    "name_fa": "خارج ران دستگاه",
+    "category": "Legs",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "abductors",
+    "secondary_muscles": [
+      "gluteal"
+    ],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "add_01",
+    "name_en": "Hip Adductor Machine",
+    "name_fa": "داخل ران دستگاه",
+    "category": "Legs",
+    "difficulty": "Beginner",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "adductor",
+    "secondary_muscles": [],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "abs_01",
+    "name_en": "Crunch",
+    "name_fa": "کرانچ",
+    "category": "Core",
+    "difficulty": "Beginner",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/barbell-squat.jpg",
+    "primary_muscle": "abs",
+    "secondary_muscles": [],
+    "equipment_type": "Bodyweight",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "abs_02",
+    "name_en": "Cable Crunch",
+    "name_fa": "کرانچ سیم کش",
+    "category": "Core",
+    "difficulty": "Intermediate",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "abs",
+    "secondary_muscles": [],
+    "equipment_type": "Cable",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "abs_03",
+    "name_en": "Leg Raise",
+    "name_fa": "زیر شکم خلبانی",
+    "category": "Core",
+    "difficulty": "Intermediate",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "abs",
+    "secondary_muscles": [
+      "obliques"
+    ],
+    "equipment_type": "Machine",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "obliques_01",
+    "name_en": "Russian Twist",
+    "name_fa": "چرخش روسی",
+    "category": "Core",
+    "difficulty": "Beginner",
+    "is_machine": false,
+    "thumbnail_url": "/assets/images/leg-press.jpg",
+    "primary_muscle": "obliques",
+    "secondary_muscles": [
+      "abs"
+    ],
+    "equipment_type": "Bodyweight",
+    "hls_manifest_url": null
+  },
+  {
+    "id": "obliques_02",
+    "name_en": "Cable Woodchopper",
+    "name_fa": "وودچاپر سیم کش",
+    "category": "Core",
+    "difficulty": "Intermediate",
+    "is_machine": true,
+    "thumbnail_url": "/assets/images/machine-chest-press.jpg",
+    "primary_muscle": "obliques",
+    "secondary_muscles": [
+      "abs"
+    ],
+    "equipment_type": "Cable",
+    "hls_manifest_url": null
+  }
+]
